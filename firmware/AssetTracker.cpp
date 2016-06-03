@@ -33,7 +33,7 @@ float AssetTracker::readLon(){
     return gps.longitude;
 }
 
-float AssetTracker::readALt(){
+float AssetTracker::readAlt(){
     return gps.altitude;
 }
 
