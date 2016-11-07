@@ -13,6 +13,7 @@ AssetTracker::AssetTracker(){
 }
 
 void AssetTracker::begin(){
+  /*
     accel.begin(LIS3DH_DEFAULT_ADDRESS);
     
     // Default to 5kHz low-power sampling
@@ -23,6 +24,7 @@ void AssetTracker::begin(){
     
     // Turn on the GPS module
     // gpsOn();
+  */
 }
 
 float AssetTracker::readLat(){
@@ -55,7 +57,7 @@ void AssetTracker::gpsOn(){
     gps.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
     delay(500);
     // Default is 1 Hz update rate
-    gps.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ);
+    gps.sendCommand(PMTK_SET_NMEA_UPDATE_100_MILLIHERTZ);
     delay(500);    
     gps.sendCommand(PGCMD_NOANTENNA);
     delay(500);
@@ -681,6 +683,7 @@ Adafruit_LIS3DH::Adafruit_LIS3DH(int8_t cspin, int8_t mosipin, int8_t misopin, i
 */
 /**************************************************************************/
 bool Adafruit_LIS3DH::begin(uint8_t i2caddr) {
+  Serial.println("Accelerometer Initialization...");
   _i2caddr = i2caddr;
   
 
